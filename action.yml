@@ -1,13 +1,23 @@
 name: 'Docker Deployment'
 description: 'Start a Docker container on remote server'
 inputs:
-  host:  # id of input
+  host:
     description: 'target host'
     required: true
-  port:  # id of input
+  port:
     description: 'target port'
     required: false
     default: '2376'
+  ca-pem:
+    description: 'ca.pem'
+    required: true
+  cert-pem:
+    description: 'cert.pem'
+    required: true
+  key-pem:
+    description: 'key.pem'
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -16,8 +26,11 @@ runs:
     - run: create-certs.sh
       shell: bash
       env:
-        CA_PEM: ${{secrets.CA_PEM}}
-        CERT_PEM: ${{secrets.CERT_PEM}}
-        KEY_PEM: ${{secrets.KEY_PEM}}
+        CA_PEM: ${{ inputs.ca-pem }}
+        CERT_PEM: ${{ inputs.cert-pem }}
+        KEY_PEM: ${{ inputs.key-pem }}
     - run: pull-and-start.sh
       shell: bash
+      env:
+        HOST: ${{ inputs.host }}
+        PORT: ${{ inputs.port }}

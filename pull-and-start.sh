@@ -3,13 +3,13 @@ docker-compose \
     --tlscacert=ca.pem \
     --tlscert=cert.pem \
     --tlskey=key.pem \
-    --host ${INPUT_HOST}:${INPUT_PORT} \
+    --host ${HOST}:${PORT} \
     pull
-    
+
 docker-compose \
     --tlsverify \
     --tlscacert=ca.pem \
     --tlscert=cert.pem \
     --tlskey=key.pem \
-    --host ${INPUT_HOST}:${INPUT_PORT} \
+    --host ${HOST}:${PORT} \
     up --force-recreate --no-build -d
