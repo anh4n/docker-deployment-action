@@ -17,6 +17,9 @@ inputs:
   key-pem:
     description: 'key.pem'
     required: true
+  docker-compose-file:
+    description: 'optional file which is merged with docker-compose.yml'
+    required: false
 
 runs:
   using: "composite"
@@ -34,3 +37,4 @@ runs:
       env:
         HOST: ${{ inputs.host }}
         PORT: ${{ inputs.port }}
+        DOCKER_COMPOSE_FILE: ${{ inputs.docker-compose-file }}

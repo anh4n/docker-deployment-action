@@ -17,4 +17,7 @@ jobs:
           ca-pem: 'MY_SECRET_CA_PEM'
           cert-pem: 'MY_SECRET_CERT_PEM'
           key-pem: 'MY_SECRET_KEY_PEM'
+          docker-compose-file: 'docker-compose.prod.yml' # optional file which is merged with docker-compose.yml
+        env:
+          TAG: '1.0.0' # example: how to pass env to your docker-compose.yml 
 ```
