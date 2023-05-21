@@ -4,13 +4,14 @@ function dc {
     --tlscacert=ca.pem \
     --tlscert=cert.pem \
     --tlskey=key.pem \
-    --host ${HOST}:${PORT} $@
+    --host ${HOST}:${PORT} \
+    -f docker-compose.yml $@
 }
 
 OPT_ARGS=""
 
-if [[ -v DOCKER_COMPOSE_FILE ]]; then
-  OPT_ARGS="-f docker-compose.yml -f ${DOCKER_COMPOSE_FILE}"
+if [[ ! -z DOCKER_COMPOSE_FILE ]]; then
+  OPT_ARGS="-f ${DOCKER_COMPOSE_FILE}"
 fi
 
 dc ${OPT_ARGS} pull

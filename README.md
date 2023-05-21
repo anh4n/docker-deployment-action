@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: anh4n/docker-deployment-action@v1
+      - uses: anh4n/docker-deployment-action@v2
         with:
           host: 'example.com'
-          port: '2376' # optionial
+          port: '2376' # optional
           ca-pem: 'MY_SECRET_CA_PEM'
           cert-pem: 'MY_SECRET_CERT_PEM'
           key-pem: 'MY_SECRET_KEY_PEM'
