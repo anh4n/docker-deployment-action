@@ -1,4 +1,4 @@
-# anh4n/docker-deployment-action@v1
+# anh4n/docker-deployment-action
 
 GitHub Action for deplyoing Docker containers via docker-compose
 

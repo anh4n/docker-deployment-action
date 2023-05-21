@@ -10,8 +10,8 @@ function dc {
 
 OPT_ARGS=""
 
-if [[ ! -z DOCKER_COMPOSE_FILE ]]; then
-  OPT_ARGS="-f ${DOCKER_COMPOSE_FILE}"
+if [[ ! -z "$DOCKER_COMPOSE_FILE" ]]; then
+  OPT_ARGS="-f $DOCKER_COMPOSE_FILE"
 fi
 
 dc ${OPT_ARGS} pull
