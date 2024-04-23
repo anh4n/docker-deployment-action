@@ -1,6 +1,6 @@
 # anh4n/docker-deployment-action
 
-GitHub Action for deplyoing Docker containers via docker-compose
+GitHub Action for deploying Docker containers on a remote server via docker-compose.
 
 ## Usage
 
