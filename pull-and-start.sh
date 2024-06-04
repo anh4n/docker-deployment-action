@@ -1,10 +1,11 @@
 function dc {
-  docker-compose \
+  docker \
     --tlsverify \
     --tlscacert=ca.pem \
     --tlscert=cert.pem \
     --tlskey=key.pem \
     --host ${HOST}:${PORT} \
+    compose \
     -f docker-compose.yml $@
 }
 
